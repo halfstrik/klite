@@ -230,7 +230,7 @@ Let's spin-up a Postgres database using Docker.
 Create the following `docker-compose.yml` file:
 
 ```yml
-service:
+services:
   db:
     image: postgres:alpine
     environment:
