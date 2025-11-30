@@ -1,12 +1,15 @@
 services:
-  app:
-    build: .
-    environment:
-      - DB_URL=jdbc:postgresql://db/$DB_USER
-      - DB_USER
-      - DB_PASS
-    depends_on:
-      - db
+#  app:
+#    build: .
+#    environment:
+#      - DB_URL=jdbc:postgresql://db/$DB_USER
+#      - DB_USER
+#      - DB_PASS
+#      - MONGO_URL=mongodb://mongo:27017
+#      - ENV=test
+#    depends_on:
+#      - db
+#      - mongo
 
   db:
     image: postgres:16-alpine
@@ -16,6 +19,13 @@ services:
     environment:
       POSTGRES_USER: $DB_USER
       POSTGRES_PASSWORD: $DB_PASS
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: secret
+      MONGO_INITDB_DATABASE: mydatabase
 
 volumes:
   data:

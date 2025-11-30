@@ -68,6 +68,7 @@ fun sampleServer(port: Int = Config.port): Server {
       before(CorsHandler()) // enable CORS for this context, so that Swagger-UI can access the API
       useHashCodeAsETag() // automatically send 304 NotModified if request generates the same response as before
       annotated<APIRoutes>() // read routes from an annotated class - such classes are easier to unit-test
+      annotated<MongoRoutes>()
       annotated<SSERoutes>("/sse") // Server-Side Events sample
       metrics()
       openApi(swaggerUIConfig = mapOf("syntaxHighlight" to true))
