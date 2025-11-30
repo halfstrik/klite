@@ -3,6 +3,7 @@ import klite.annotations.annotated
 import klite.http.httpClient
 import klite.jdbc.*
 import klite.json.JsonBody
+import klite.mongo.MongoModule
 import klite.oauth.AuthRoutes
 import klite.oauth.OAuthRoutes
 import klite.oauth.OAuthUserProvider
@@ -25,6 +26,8 @@ fun sampleServer(port: Int = Config.port): Server {
     use(DBMigrator(dropAllOnFailure = Config.isDev)) //  migrate the DB
     use(DBModule(PooledDataSource())) // configure a DataSource
     use<RequestTransactionHandler>() // runs each request in a transaction
+
+    use(MongoModule())
 
     assets("/", AssetsHandler(Path.of("public"), useIndexForUnknownPaths = true))
 

@@ -5,12 +5,14 @@ val mainClassName = "LauncherKt"
 dependencies {
   implementation(project(":server"))
   implementation(project(":json"))
+  implementation(project(":mongo"))
   implementation(project(":i18n"))
   implementation(project(":jdbc"))
   implementation(project(":slf4j"))
   implementation(project(":oauth"))
   implementation(project(":openapi"))
   implementation(libs.postgresql)
+  implementation(libs.mongodb)
   testImplementation(project(":jdbc-test"))
 }
 

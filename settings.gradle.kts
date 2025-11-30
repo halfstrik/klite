@@ -35,6 +35,7 @@ dependencyResolutionManagement {
       library("hikari", "com.zaxxer:HikariCP:7.0.2")
       library("liquibase-core", "org.liquibase:liquibase-core:4.33.0")
       library("postgresql", "org.postgresql:postgresql:42.7.8")
+      library("mongodb", "org.mongodb:mongodb-driver-sync:5.6.1")
     }
   }
 }
@@ -51,6 +52,7 @@ include(
   "jdbc",
   "jobs",
   "jdbc-test",
+  "mongo",
   "oauth",
   "smtp",
   "liquibase",
